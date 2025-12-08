@@ -1,0 +1,95 @@
+
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #FFE4E1;
+    color: #333;
+    margin: 0;
+  }
+
+  header {
+    background-color: #FFFAF0;
+    color: black;
+    padding: 20px;
+    text-align: center;
+  }
+
+  /* MENÚ */
+  nav { 
+    background-color:black;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 12px;
+  }
+
+  nav a {
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 10px;
+    transition: 0.3s;
+  }
+
+  nav a:hover {
+    background-color: #ffb3d9;
+  }
+
+  nav a.activo {
+    background-color: #ff4d94;
+    color: white;
+  }
+
+  /* PRODUCTOS */
+  .catalogo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .producto {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.2s;
+  }
+
+  .producto:hover { transform: scale(1.03); }
+  .producto img { width: 100%; border-radius: 15px; }
+
+  .btn {
+    background-color:#D8BFD8 ;
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .btn:hover { background-color: #DDA0DD; }
+
+  /* SECCIONES */
+  section { display: none; }
+  #inicio { display: block; }
+
+  footer {
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    margin-top: 30px;
+  }
+
+  .contenido {
+    background: #FFFAF0;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 15px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    max-width: 900px;
+    margin: auto;
+  }
