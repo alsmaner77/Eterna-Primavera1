@@ -93,3 +93,39 @@
     max-width: 900px;
     margin: auto;
   }
+
+/* Comentarios*/
+#seccion-comentarios {
+    font-family: sans-serif;
+    margin-top: 40px;
+}
+.formulario-comentario label {
+    display: block;
+    margin-top: 10px;
+}
+.formulario-comentario input,
+.formulario-comentario textarea {
+    width: 95%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+}
+.formulario-comentario button {
+    padding: 10px 15px;
+    background-color: #D8BFD8 ;
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.formulario-comentario button:hover {background-color: #DDA0DD;}
+.lista-comentarios {
+    margin-top: 20px;
+}
+.comentario {
+    border: 1px solid lightgray;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
