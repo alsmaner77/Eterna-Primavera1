@@ -217,14 +217,7 @@
 
   <!-- Comentarios -->  
  <section id="comentarios" class="contenido">
-   <button id="borrar-comentarios">Borrar todos los comentarios</button>
-  <script>
-    document.getElementById("borrar-comentarios").addEventListener("click", function() {
-    localStorage.removeItem("comentarios");  // o localStorage.clear();
-    document.querySelector('.lista-comentarios').innerHTML = ""; // limpiar pantalla
-    alert("Comentarios eliminados");
-});
-  
+     
   </script>
   <div class="formulario-comentario">
         <form id="form-comentar">
@@ -326,3 +319,4 @@ function mostrar(seccion){
 </body>
 
 </html>
+
