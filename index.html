@@ -26,6 +26,7 @@
   <a onclick="mostrar('nosotros')">Nosotros</a>
   <a onclick="mostrar('ayuda')">Ayuda</a>
   <a onclick="mostrar('contacto')">Contacto</a>
+  <a onclick="mostrar('comentarios')">Comentarios</a>
   <a onclick="mostrar('carrito')">Carrito 🛒</a>
 </nav>
 
@@ -214,6 +215,69 @@
   <p>Dirección: Cuauhtémoc s/n, Zona Industrial</p>
 </section>
 
+  <!-- Comentarios -->  
+ <section id="comentarios" class="contenido">
+   <button id="borrar-comentarios">Borrar todos los comentarios</button>
+  <script>
+    document.getElementById("borrar-comentarios").addEventListener("click", function() {
+    localStorage.removeItem("comentarios");  // o localStorage.clear();
+    document.querySelector('.lista-comentarios').innerHTML = ""; // limpiar pantalla
+    alert("Comentarios eliminados");
+});
+  
+  </script>
+  <div class="formulario-comentario">
+        <form id="form-comentar">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="comentario">Comentario:</label>
+            <textarea id="comentario" name="comentario" rows="4" required></textarea>
+
+            <button type="submit">Publicar Comentario</button>
+        </form>
+    </div>
+
+    <div class="lista-comentarios"></div>
+
+    <script>
+    // Cargar comentarios guardados al iniciar
+    document.addEventListener("DOMContentLoaded", function () {
+        const comentariosGuardados = JSON.parse(localStorage.getItem("comentarios")) || [];
+        const lista = document.querySelector('.lista-comentarios');
+
+        comentariosGuardados.forEach(c => {
+            const div = document.createElement("div");
+            div.className = "comentario";
+            div.innerHTML = `<strong>${c.nombre}:</strong><p>${c.texto}</p>`;
+            lista.appendChild(div);
+        });
+    });
+
+    // Manejar envío del formulario
+    document.getElementById('form-comentar').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const nombre = document.getElementById('nombre').value;
+        const comentario = document.getElementById('comentario').value;
+
+        const lista = document.querySelector('.lista-comentarios');
+        const nuevoComentario = document.createElement('div');
+        nuevoComentario.className = 'comentario';
+        nuevoComentario.innerHTML = `<strong>${nombre}:</strong><p>${comentario}</p>`;
+        lista.appendChild(nuevoComentario);
+
+        
+        // Guardar en localStorage
+        const comentarios = JSON.parse(localStorage.getItem("comentarios")) || [];
+        comentarios.push({ nombre: nombre, texto: comentario });
+        localStorage.setItem("comentarios", JSON.stringify(comentarios));
+
+        document.getElementById('form-comentar').reset();
+    });
+</script>
+ </section>
+
 <!-- CARRITO -->
 <section id="carrito" class="contenido">
   <h2>🛒 Carrito de Compras</h2>
@@ -260,4 +324,5 @@ function mostrar(seccion){
 </script>
 
 </body>
+
 </html>
